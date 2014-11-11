@@ -8,9 +8,9 @@
 class Dealer {
 	public:
 		Card* dealCard();
-		void receiveHand(Hand* h) {
-			this->hand = h;
-		}
+		void receiveHand(Hand* h);
+		void receiveCard(Card* c);
+		int currentBlackjackSum();
 
 	private:
 		Deck deck;

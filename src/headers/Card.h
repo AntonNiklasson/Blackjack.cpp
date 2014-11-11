@@ -6,16 +6,17 @@
 class Card {
 	public:
 		Card(const std::string color, int value);
+
 		std::string getColor();
-		int getValue();
-		int getBlackjackValue();
+		int 		getValue();
+		int 		getBlackjackValue();
 		std::string toString();
-		bool isAce();
+		bool 		isAce();
 
 	private:
-		std::string color;
-		int value;
-		std::string valueToString();
+		std::string 	color;
+		int 			value;
+		std::string 	valueToString();
 };
 
 #endif

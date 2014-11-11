@@ -3,6 +3,11 @@
 #include "headers/Card.h"
 
 
+void Hand::operator += (Card* card) {
+	this->cards.push_back(card);
+}
+
+
 Hand::Hand(Card* first, Card* second) {
 	this->addCard(first);
 	this->addCard(second);

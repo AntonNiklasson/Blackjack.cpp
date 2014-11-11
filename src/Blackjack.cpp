@@ -44,6 +44,8 @@ void Blackjack::playRound() {
 	}
 
 	this->turnHandler->finishDealersTurn();
+
+	this->turnHandler->presentTurnOutcome();
 }
 
 

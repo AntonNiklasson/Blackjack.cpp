@@ -9,12 +9,15 @@ using namespace std;
 
 class Hand {
 	public:
+		void operator += (Card* card);
+
 		Hand();
 		Hand(Card* c1, Card* c2);
-		void addCard(Card* c);
-		std::vector<Card*> getAllCards();
-		void printAllCards();
-		int getBlackjackSum();
+
+		void 				addCard(Card* c);
+		std::vector<Card*>	getAllCards();
+		void 				printAllCards();
+		int					getBlackjackSum();
 
 	private:
 		std::vector<Card*> cards;

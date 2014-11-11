@@ -14,6 +14,7 @@ class TurnHandler {
 		int askForAction();
 		void executeAction(int action);
 		void finishDealersTurn();
+		void presentTurnOutcome();
 
 	private:
 		Blackjack* game;
