@@ -115,7 +115,7 @@ void TurnHandler::presentTurnOutcome() {
 	for(Player* player : this->game->players) {
 		if(player->getHand()->getBlackjackSum() > 21) {
 			cout << player->toString() << " got fat at " << player->getHand()->getBlackjackSum() << endl;
-		} else if(player->getHand()->getBlackjackSum() > this->game->dealer.currentBlackjackSum()) {
+		} else if(this->game->dealer.currentBlackjackSum() > 21) {
 			cout << player->toString() << " won over the dealer!" << endl;
 		} else {
 			cout << player->toString() + " lost against the dealer!" << endl;
