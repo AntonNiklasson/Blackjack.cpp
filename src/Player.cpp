@@ -19,7 +19,7 @@ void Player::printCurrentHandSum() {
 // Virtual
 void Player::printCurrentHand() {
 	for(Card* card : this->hand->getAllCards()) {
-		card->toString();
+		std::cout << card->toString() << std::endl;
 	}
 };
 
