@@ -15,7 +15,7 @@ void TurnHandler::handlePlayersTurn(Player* player) {
 	this->printTurnHeader();
 
 	while(!this->turnIsDone) {
-		int action = this->askForAction();
+		int action = player->askForAction();
 		this->executeAction(action);
 	}
 
@@ -27,26 +27,6 @@ void TurnHandler::printTurnHeader() {
 	cout << endl;
 	cout << "=== " + this->player->toString() + "'s turn! ===" << endl;
 }
-
-
-int TurnHandler::askForAction() {
-	int nextAction = 0;
-	std::string rawInput;
-
-	do {
-		cout << endl;
-		cout << "What is your next move?" << endl;
-		cout << "1. Hit" << endl;
-		cout << "2. Stop" << endl;
-		cin >> rawInput;
-
-		nextAction = std::atoi(rawInput.c_str());
-
-	} while(nextAction < 1 || nextAction > 3);
-
-	return nextAction;
-}
-
 
 void TurnHandler::executeAction(int action) {
 	switch(action) {

@@ -9,6 +9,7 @@ class Player {
 		Player(const std::string name);
 		virtual void printCurrentHandSum();
 		virtual void printCurrentHand();
+		virtual int askForAction();
 		std::string toString();
 		void receiveHand(Hand* h);
 		void receiveCard(Card* c);
