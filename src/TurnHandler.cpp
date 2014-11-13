@@ -14,6 +14,10 @@ void TurnHandler::handlePlayersTurn(Player* player) {
 
 	this->printTurnHeader();
 
+	if(this->player->hasBlackjack()) {
+		this->turnIsDone = true;
+	}
+
 	while(!this->turnIsDone) {
 		int action = this->askForAction();
 		this->executeAction(action);
@@ -63,8 +67,11 @@ void TurnHandler::executeAction(int action) {
 			if(currentBlackjackSum > 21) {
 				cout << "You just got fat! :(" << endl;
 				this->turnIsDone = true;
-			} else if(currentBlackjackSum == 21) {
+			} else if(currentBlackjackSum == 21 && this->player->getHand()->size() == 2) {
 				cout << "BLACKJACK!!!" << endl;
+				this->turnIsDone = true;
+			} else if(currentBlackjackSum == 21) {
+				cout << "You got 21!" << endl;
 				this->turnIsDone = true;
 			} else {
 				cout << "You now have the following hand:" << endl;

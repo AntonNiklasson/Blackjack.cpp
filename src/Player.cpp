@@ -47,3 +47,8 @@ void Player::printHand() {
 Hand* Player::getHand() {
 	return this->hand;
 }
+
+
+bool Player::hasBlackjack() {
+	return this->hand->size() == 2 && this->hand->getBlackjackSum() == 21;
+}

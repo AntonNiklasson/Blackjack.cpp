@@ -18,6 +18,7 @@ class Hand {
 		std::vector<Card*>	getAllCards();
 		void 				printAllCards();
 		int					getBlackjackSum();
+		int					size();
 
 	private:
 		std::vector<Card*> cards;

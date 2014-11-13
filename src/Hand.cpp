@@ -40,3 +40,8 @@ int Hand::getBlackjackSum() {
 
 	return totalSum;
 }
+
+
+int Hand::size() {
+	return this->cards.size();
+}
