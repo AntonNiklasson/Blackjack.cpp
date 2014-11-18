@@ -9,8 +9,16 @@ Card::Card(std::string color, int value) {
 }
 
 
-std::string Card::getColor() {
-	return color;
+std::string Card::getColorString() {
+	if(color == "Hearts") {
+		return "♥";
+	} else if(color == "Diamonds") {
+		return "♦";
+	} else if(color == "Clubs") {
+		return "♣";
+	} else if(color == "Spades") {
+		return "♠";
+	}
 }
 
 
@@ -32,7 +40,7 @@ int Card::getBlackjackValue() {
 
 std::string Card::toString() {
 	// e.g. "Jack of Hearts" or "9 of Diamonds"
-	return this->valueToString() + " of " + this->getColor();
+	return this->valueToString() + " of " + this->getColorString();
 }
 
 

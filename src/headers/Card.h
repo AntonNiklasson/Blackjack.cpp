@@ -7,7 +7,7 @@ class Card {
 	public:
 		Card(const std::string color, int value);
 
-		std::string getColor();
+		std::string getColorString();
 		int 		getValue();
 		int 		getBlackjackValue();
 		std::string toString();

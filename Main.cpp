@@ -8,9 +8,8 @@ using namespace std;
 
 
 void printHeader() {
-	cout << "=================" << endl;
 	cout << endl;
-	cout << "=== BLACKJACK ===" << endl;
+	cout << "===|| BLACKJACK ||===" << endl;
 }
 
 void addPlayers(Blackjack* game) {
