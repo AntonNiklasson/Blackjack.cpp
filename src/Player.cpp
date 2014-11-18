@@ -19,7 +19,7 @@ void Player::printCurrentHandSum() {
 // Virtual
 void Player::printCurrentHand() {
 	for(Card* card : this->hand->getAllCards()) {
-		card->toString();
+		std::cout << card->toString() << std::endl;
 	}
 };
 
@@ -46,4 +46,9 @@ void Player::printHand() {
 
 Hand* Player::getHand() {
 	return this->hand;
+}
+
+
+bool Player::hasBlackjack() {
+	return this->hand->size() == 2 && this->hand->getBlackjackSum() == 21;
 }

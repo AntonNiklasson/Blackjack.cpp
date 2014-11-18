@@ -14,8 +14,12 @@ void TurnHandler::handlePlayersTurn(Player* player) {
 
 	this->printTurnHeader();
 
+	if(this->player->hasBlackjack()) {
+		this->turnIsDone = true;
+	}
+
 	while(!this->turnIsDone) {
-		int action = this->askForAction();
+		int action = player->askForAction();
 		this->executeAction(action);
 	}
 
@@ -27,26 +31,6 @@ void TurnHandler::printTurnHeader() {
 	cout << endl;
 	cout << "=== " + this->player->toString() + "'s turn! ===" << endl;
 }
-
-
-int TurnHandler::askForAction() {
-	int nextAction = 0;
-	std::string rawInput;
-
-	do {
-		cout << endl;
-		cout << "What is your next move?" << endl;
-		cout << "1. Hit" << endl;
-		cout << "2. Stop" << endl;
-		cin >> rawInput;
-
-		nextAction = std::atoi(rawInput.c_str());
-
-	} while(nextAction < 1 || nextAction > 3);
-
-	return nextAction;
-}
-
 
 void TurnHandler::executeAction(int action) {
 	switch(action) {
@@ -63,8 +47,11 @@ void TurnHandler::executeAction(int action) {
 			if(currentBlackjackSum > 21) {
 				cout << "You just got fat! :(" << endl;
 				this->turnIsDone = true;
-			} else if(currentBlackjackSum == 21) {
+			} else if(currentBlackjackSum == 21 && this->player->getHand()->size() == 2) {
 				cout << "BLACKJACK!!!" << endl;
+				this->turnIsDone = true;
+			} else if(currentBlackjackSum == 21) {
+				cout << "You got 21!" << endl;
 				this->turnIsDone = true;
 			} else {
 				cout << "You now have the following hand:" << endl;
@@ -115,7 +102,7 @@ void TurnHandler::presentTurnOutcome() {
 	for(Player* player : this->game->players) {
 		if(player->getHand()->getBlackjackSum() > 21) {
 			cout << player->toString() << " got fat at " << player->getHand()->getBlackjackSum() << endl;
-		} else if(player->getHand()->getBlackjackSum() > this->game->dealer.currentBlackjackSum()) {
+		} else if(this->game->dealer.currentBlackjackSum() > 21) {
 			cout << player->toString() << " won over the dealer!" << endl;
 		} else {
 			cout << player->toString() + " lost against the dealer!" << endl;

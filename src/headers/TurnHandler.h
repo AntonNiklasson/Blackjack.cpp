@@ -9,12 +9,13 @@ class Blackjack;
 class TurnHandler {
 	public:
 		TurnHandler(Blackjack* game);
-		void handlePlayersTurn(Player* p);
-		void printTurnHeader();
-		int askForAction();
-		void executeAction(int action);
-		void finishDealersTurn();
-		void presentTurnOutcome();
+
+		void 	handlePlayersTurn(Player* p);
+		void 	printTurnHeader();
+		int 	askForAction();
+		void 	executeAction(int action);
+		void 	finishDealersTurn();
+		void 	presentTurnOutcome();
 
 	private:
 		Blackjack* game;
