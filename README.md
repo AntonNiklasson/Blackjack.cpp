@@ -6,4 +6,5 @@ A simple Blackjack implementation in C++11. Mostly for learning the language, no
 
 - The `TurnHandler` class is a `friend` of the `Blackjack` class.
 - All single parameter constructors are declared as `explicit`, unless `implicit` is really needed.
-- All implementation, no matter the size, is not placed in the .h files.
+- No implementation in header files.
+- The operator += is overloaded in Hand to allow for adding a card to the hand in a clean way. `hand += card`
