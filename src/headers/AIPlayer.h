@@ -5,7 +5,7 @@
 
 class AIPlayer : public Player {
 	public:
-		AIPlayer(const std::string name);
+		explicit AIPlayer(const std::string name);
 };
 
 #endif

@@ -6,7 +6,7 @@
 
 class Player {
 	public:
-		Player(const std::string name);
+		explicit Player(const std::string name);
 
 		virtual void printCurrentHandSum();
 		virtual void printCurrentHand();
@@ -16,6 +16,7 @@ class Player {
 		void receiveCard(Card* c);
 		void printHand();
 		Hand* getHand();
+		Hand getHandObject();
 		bool hasBlackjack();
 
 	protected:

@@ -14,7 +14,6 @@ class Hand {
 		Hand();
 		Hand(Card* c1, Card* c2);
 
-		void 				addCard(Card* c);
 		std::vector<Card*>	getAllCards();
 		void 				printAllCards();
 		int					getBlackjackSum();

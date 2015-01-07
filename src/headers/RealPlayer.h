@@ -5,7 +5,7 @@
 
 class RealPlayer : public Player {
 	public:
-		RealPlayer(std::string name);
+		explicit RealPlayer(std::string name);
 };
 
 #endif

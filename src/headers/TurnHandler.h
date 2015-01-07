@@ -8,7 +8,7 @@ class Blackjack;
 
 class TurnHandler {
 	public:
-		TurnHandler(Blackjack* game);
+		explicit TurnHandler(Blackjack* game);
 
 		void 	handlePlayersTurn(Player* p);
 		void 	printTurnHeader();

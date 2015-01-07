@@ -19,6 +19,8 @@ std::string Card::getColorString() {
 	} else if(color == "Spades") {
 		return "♠";
 	}
+
+	return "unknown color";
 }
 
 
@@ -39,8 +41,7 @@ int Card::getBlackjackValue() {
 
 
 std::string Card::toString() {
-	// e.g. "Jack of Hearts" or "9 of Diamonds"
-	return this->valueToString() + " of " + this->getColorString();
+	return this->valueToString() + this->getColorString();
 }
 
 
@@ -54,10 +55,10 @@ std::string Card::valueToString() {
 		return std::to_string(value);
 	} else {
 		switch(value) {
-			case 11: return "Jack";
-			case 12: return "Queen";
-			case 13: return "King";
-			case 14: return "Ace";
+			case 11: return "J";
+			case 12: return "Q";
+			case 13: return "K";
+			case 14: return "A";
 		}
 	}
 	return "0";

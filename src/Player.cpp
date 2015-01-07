@@ -35,7 +35,7 @@ void Player::receiveHand(Hand* h) {
 
 
 void Player::receiveCard(Card* c) {
-	this->hand->addCard(c);
+	*(this->hand) += c;
 }
 
 
@@ -46,6 +46,11 @@ void Player::printHand() {
 
 Hand* Player::getHand() {
 	return this->hand;
+}
+
+
+Hand Player::getHandObject() {
+	return *(this->hand);
 }
 
 

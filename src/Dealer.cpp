@@ -3,8 +3,14 @@
 #include "headers/Deck.h"
 
 
+Dealer::Dealer() {
+	cout << "In Dealer::Dealer()!" << endl;
+}
+
+
 Card* Dealer::dealCard() {
-	return this->deck.getRandomCard();
+	Card* card = deck.getRandomCard();
+	return card;
 }
 
 
@@ -14,7 +20,7 @@ void Dealer::receiveHand(Hand* h) {
 
 
 void Dealer::receiveCard(Card* c) {
-	this->hand->addCard(c);
+	*(this->hand) += c;
 }
 
 

@@ -7,6 +7,8 @@
 
 class Dealer {
 	public:
+ 		Dealer();
+
 		Card* dealCard();
 		void receiveHand(Hand* h);
 		void receiveCard(Card* c);

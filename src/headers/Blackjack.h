@@ -9,6 +9,8 @@ class Blackjack {
 	friend class TurnHandler;
 
 	public:
+		Blackjack();
+
 		void addPlayer(Player* p);
 		void playRound();
 		void dealCardsToAll();

@@ -4,10 +4,14 @@
 #include "headers/Deck.h"
 #include "headers/Card.h"
 
+using namespace std;
+
 
 Deck::Deck() {
+	cout << "In Deck::Deck()!" << endl;
+
 	for(int i = 0; i < 52; i++) {
-		std::string color = "";
+		string color = "";
 		int value = i % 13 + 2;
 
 		if(i < 13) {
@@ -26,9 +30,18 @@ Deck::Deck() {
 }
 
 Card* Deck::getRandomCard() {
-	srand(time(0));
-	int index = rand() % cards.size();
+
+	cout << "Getting random card." << endl;
+
+	srand(time(NULL));
+	int index = rand() % 52;
+
+	cout << "Is this working?" << endl;
+
 	Card* card = cards[index];
+
+	cout << "Yes, it is." << endl;
+
 	cards.erase(cards.begin() + index);
 
 	return card;

@@ -3,19 +3,15 @@
 #include "headers/Card.h"
 
 
+// Overloading `+=` operator
 void Hand::operator += (Card* card) {
 	this->cards.push_back(card);
 }
 
 
 Hand::Hand(Card* first, Card* second) {
-	this->addCard(first);
-	this->addCard(second);
-}
-
-
-void Hand::addCard(Card* c) {
-	cards.push_back(c);
+	*(this) += first;
+	*(this) += second;
 }
 
 

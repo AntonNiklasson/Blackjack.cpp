@@ -34,7 +34,7 @@ void TurnHandler::printTurnHeader() {
 
 void TurnHandler::executeAction(int action) {
 	switch(action) {
-		case 1: {
+		case 1: { // Hit
 			Card* newCard = this->game->dealer.dealCard();
 			this->player->getHand()->operator+=(newCard); // Operator += overloaded in Hand.cpp
 
@@ -61,7 +61,7 @@ void TurnHandler::executeAction(int action) {
 
 			break;
 		}
-		case 2: {
+		case 2: { // Stop
 			cout << endl;
 			cout << "You chose to stop at " << this->player->getHand()->getBlackjackSum() << endl;
 			this->turnIsDone = true;
@@ -73,22 +73,22 @@ void TurnHandler::executeAction(int action) {
 
 
 void TurnHandler::finishDealersTurn() {
-	Dealer* dealer = &this->game->dealer;
+	auto dealer = this->game->dealer;
 
 	cout << endl;
 	cout << "Dealer's turn!" << endl;
 
-	while(dealer->currentBlackjackSum() < 17) {
-		Card* c = dealer->dealCard();
+	while(dealer.currentBlackjackSum() < 17) {
+		Card* c = dealer.dealCard();
 
 		cout << "Dealer got " << c->toString() << endl;
-		dealer->receiveCard(c);
+		dealer.receiveCard(c);
 	}
 
-	if(dealer->currentBlackjackSum() > 21) {
+	if(dealer.currentBlackjackSum() > 21) {
 		cout << "Dealer got fat!" << endl;
 	} else {
-		cout << "Dealer stopped at " << dealer->currentBlackjackSum() << endl;
+		cout << "Dealer stopped at " << dealer.currentBlackjackSum() << endl;
 	}
 }
 

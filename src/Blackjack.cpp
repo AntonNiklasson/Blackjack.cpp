@@ -8,13 +8,21 @@
 using namespace std;
 
 
+Blackjack::Blackjack() {
+	cout << "In Blackjack::Blackjack()!" << endl;
+}
+
+
 void Blackjack::dealCardsToAll() {
 	for(Player* player : this->players) {
+
+		cout << "Dealing cards to " << player->toString() << endl;
+
 		Card* first = this->dealer.dealCard();
 		Card* second = this->dealer.dealCard();
 
 		cout << endl;
-		cout << "Player " << player->toString() << " was delt:" << endl;
+		cout << player->toString() << ":" << endl;
 		cout << first->toString() << endl;
 		cout << second->toString() << endl;
 
@@ -35,9 +43,9 @@ void Blackjack::dealCardsToAll() {
 
 void Blackjack::playRound() {
 
-	int* nextAction = 0;
-
 	dealCardsToAll();
+
+	cout << "Dealt cards to all" << endl;
 
 	for(Player* currentPlayer : this->players) {
 		this->turnHandler->handlePlayersTurn(currentPlayer);
